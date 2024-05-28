@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="build/output.css" />
+    <title>Weather App</title>
+  </head>
+  <body
+    class="flex items-center justify-center h-screen bg-gray-900 selection:bg-gray-900 selection:text-green-500"
+  >
+    <section
+      class="flex flex-col justify-center max-w-sm px-8 py-8 mx-2 my-4 text-white rounded-lg aspect-w-20 aspect-h-16 card bg-gradient-to-br from-green-500 to-indigo-600"
+    >
+      <div class="flex items-center justify-center gap-2 text-gray-500 search">
+        <input
+          type="text"
+          placeholder="city name"
+          spellcheck="false"
+          class="w-4/5 bg-green-100 border-none rounded-lg form-input focus:ring-0"
+        />
+        <button class="p-2 bg-green-100 rounded-full search-button">
+          <!-- search icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center weather selection:select-none"
+      >
+        <img src="../images/clear.png" class="" />
+        <h1 class="mb-4 text-4xl font-semibold temp">22°C</h1>
+        <h2 class="mb-8 text-xl city">Tehran</h2>
+        <div
+          class="flex flex-col items-center justify-between gap-4 details sm:flex-row sm:gap-8"
+        >
+          <div class="flex items-center gap-2 text-sm">
+            <img src="../images/humidity.png" class="w-5 h-5" />
+            <div class="flex gap-1">
+              <p class="humidity">40%</p>
+              <p>humidity</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-sm">
+            <img src="../images/wind.png" class="w-5 h-5" />
+            <div class="flex gap-1">
+              <p class="wind">15 km / h</p>
+              <p>Wind speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../src/javaScript/script.js"></script>
+  </body>
+</html>
