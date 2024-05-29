@@ -4,10 +4,10 @@ let temp = document.querySelector(".temp");
 let cityName = document.querySelector(".city");
 let humidity = document.querySelector(".humidity");
 let wind = document.querySelector(".wind");
+let image = document.querySelector(".image");
 
 searchBtn.addEventListener("click", function () {
   let cityNameUser = input.value;
-  getCityName(cityNameUser);
   getWeather(cityNameUser);
 });
 
@@ -20,7 +20,7 @@ async function getCityName(city) {
   let cityNameAPI = await fetch(`${apiLocation}${city}${apiKey}`);
   let userCity = await cityNameAPI.json();
   let userCityCordinates = `lat=${userCity[0].lat}&lon=${userCity[0].lon}`;
-  cityName.innerHTML = await input.value;
+  cityName.innerHTML = input.value;
   return userCityCordinates;
 }
 async function getWeather(data) {
@@ -30,10 +30,11 @@ async function getWeather(data) {
   );
   let cityWeather = await cityWeatherAPI.json();
   console.log(cityWeather);
+  let weatherState = await cityWeather.weather;
+  let weatherMode = await weatherState[0].main.toLowerCase();
   temp.innerHTML = `${Math.floor(cityWeather.main.temp)} °C`;
   humidity.innerHTML = `${cityWeather.main.humidity}%`;
   wind.innerHTML = `${Math.floor(cityWeather.wind.speed)} km / h`;
-
-  let weatherState = cityWeather[0].main;
-  console.log(weatherState);
+  console.log(weatherState, typeof weatherMode);
+  image.src = `../images/${weatherMode}.png`;
 }
